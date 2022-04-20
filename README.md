@@ -66,11 +66,47 @@ The NEOPIXEL library on the Raspberry Pi can only handle one strand object at a 
 
 RPi GPIO 21 ---> DIN question indicator LED[0] ... LED[9] ---> DOUT ---> DIN strand/wheel of accent lighting
 
+# northernlights.py
 
+Northernlights.py acts as the RTC handler and serial communicator to the Arduino to facilitate the showcase, solenoid-powered marble drop. Northernlights.py should ALWAYS be running in the background. Every hour, on the hour, a signal is sent from the RPi to the Arduino (running stardawg.ino) causing the Arduino to power the solenoids as needed for the drop (see stardawg.ino section below). 
+
+The serial communication to the Arduino is conducted via USB3.0 (tty/ACM0). If encountering issues with the communication protocal, ensure UART is configured correctly and the user has the appropriate hardware permission to access the required port. See helpful documentation [here](https://roboticsbackend.com/raspberry-pi-arduino-serial-communication/#What_is_Serial_communication_with_UART) and [here](https://roboticsbackend.com/raspberry-pi-hardware-permissions/) for troubleshooting.
+
+# stardawg.ino
+
+Stardawg.ino acts as the solenoid controller for the showcase, solenoid-powered marble drop. Upon recieving a serial signal from the RPi northernlights.py RTC manager, stardawg begins a drop sequence for each question (two solenoids per question). The distribution of the drop (ratio of yes:no) can be altered in the stardawg.ino program by altering the third argument in the `void drop(int relayYES, int relayNO, int instance)` function call.
+
+The program assumes 36 marbles per drop. Considering an equal distribution of questsions answered (i.e. everyone who does the experience must answer all 9 questions to complete the experience), that leaves 4 marbles per question (36/9=4). With that in mind, there are 5 different scenarios per question per drop.
+
+ *  Scenario 1: 25% YES, 75% NO
+ *  Scenario 2: 75% YES, 25% NO
+ *  Scenario 3: 50% YES, 50% NO
+ *  Scenario 4: 100% YES, 0% NO
+ *  Scenario 5: 0% YES, 100% NO
  
- 
+With the current software architecture, real-time tracking from the RPi is not available at this time. However, the following solution should still provide a fantastic experience and ensure the data remains accurate even if the sample size from the community survery remains too small to be statistically accurate.
 
+# Helpful External Resources
 
+**Running a Pi Headless**
+
+https://www.hackster.io/435738/how-to-setup-your-raspberry-pi-headless-8a905f
+
+**Establishing Serial Communication btwn RPi and Ard**
+
+https://roboticsbackend.com/raspberry-pi-arduino-serial-communication/#What_is_Serial_communication_with_UART
+
+https://roboticsbackend.com/raspberry-pi-hardware-permissions/
+
+**RPi GPIO Event Detection, Debouncing, and Callback Threads**
+
+https://raspi.tv/2013/how-to-use-interrupts-with-python-on-the-raspberry-pi-and-rpi-gpio-part-3
+
+https://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/
+
+https://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/
+
+https://shallowsky.com/blog/hardware/buttons-on-raspberry-pi.html
 
 
 
