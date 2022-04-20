@@ -90,23 +90,40 @@ With the current software architecture, real-time tracking from the RPi is not a
 
 **Running a Pi Headless**
 
-https://www.hackster.io/435738/how-to-setup-your-raspberry-pi-headless-8a905f
+ * https://www.hackster.io/435738/how-to-setup-your-raspberry-pi-headless-8a905f
 
 **Establishing Serial Communication btwn RPi and Ard**
 
-https://roboticsbackend.com/raspberry-pi-arduino-serial-communication/#What_is_Serial_communication_with_UART
-
-https://roboticsbackend.com/raspberry-pi-hardware-permissions/
+ * https://roboticsbackend.com/raspberry-pi-arduino-serial-communication/#What_is_Serial_communication_with_UART
+ * https://roboticsbackend.com/raspberry-pi-hardware-permissions/
+ * https://www.arduino.cc/reference/en/language/functions/communication/serial/read/
+ * https://arduinogetstarted.com/reference/serial-available
 
 **RPi GPIO Event Detection, Debouncing, and Callback Threads**
 
-https://raspi.tv/2013/how-to-use-interrupts-with-python-on-the-raspberry-pi-and-rpi-gpio-part-3
+ * https://raspi.tv/2013/how-to-use-interrupts-with-python-on-the-raspberry-pi-and-rpi-gpio-part-3
+ * https://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/
+ * https://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/
+ * https://shallowsky.com/blog/hardware/buttons-on-raspberry-pi.html
 
-https://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/
+**Controlling NEOPIXELs/WS2811s from the RPi**
 
-https://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/
+ * https://learn.adafruit.com/neopixels-on-raspberry-pi/python-usage
+ * https://learn.adafruit.com/neopixels-on-raspberry-pi
+ * https://forums.raspberrypi.com/viewtopic.php?t=260962
 
-https://shallowsky.com/blog/hardware/buttons-on-raspberry-pi.html
+**Audio Output in a World where Omxplayer is Deprecated**
 
+ * https://www.pygame.org/docs/ref/music.html#pygame.mixer.music.unload
 
+**Enabling an RTC on RPi**
 
+ * https://maker.pro/raspberry-pi/tutorial/how-to-add-an-rtc-module-to-raspberry-pi
+ * https://thepihut.com/blogs/raspberry-pi-tutorials/17209332-adding-a-real-time-clock-to-your-raspberry-pi
+ * https://www.switchdoc.com/2014/08/raspberry-pi-python-library-ds3231/
+ * https://www.raspberrypi-spy.co.uk/2015/05/adding-a-ds3231-real-time-clock-to-the-raspberry-pi/
+
+**Helpful Hacks**
+
+ * https://medium.com/techtofreedom/5-ways-to-break-out-of-nested-loops-in-python-4c505d34ace7
+ * https://hackingmajenkoblog.wordpress.com/2016/12/06/the-importance-of-sharing-grounds/
